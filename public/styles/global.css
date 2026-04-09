@@ -1,67 +1,253 @@
-/* * {
-    border: 1px solid red !important;
-    outline: 1px solid green !important;
-} */
+/* ================= BASE RESET ================= */
 
 a {
-    cursor: pointer !important;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-a,
-button,
-h1,
-p {
-    /* cursor: none !important; */
-    text-decoration: none;
+button {
+  cursor: pointer;
 }
 
 img {
-    user-select: none;
-    pointer-events: none;
+  user-select: none;
+  pointer-events: none;
 }
 
 .selectable p {
-    user-select: text;
-    cursor: text;
+  user-select: text;
+  cursor: text;
 }
 
-@keyframes gradientPan {
-    from {
-        background-position: 0% center;
-    }
-
-    to {
-        background-position: -200% center;
-    }
-}
-
-/* Disable blue button click highlight */
+/* Remove mobile blue highlight */
 input,
 button,
 a,
 div {
-    -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
+/* ================= SCROLLBAR ================= */
+
 ::-webkit-scrollbar {
-    width: 16px;
+  width: 14px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--mixColor);
-    border-radius: 14px;
-    border: 6px solid transparent;
-    background-clip: content-box;
+  background: var(--mixColor);
+  border-radius: 10px;
+  border: 4px solid transparent;
+  background-clip: content-box;
 }
+
+/* ================= AUTOFILL FIX ================= */
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    -webkit-text-fill-color: var(--text) !important;
-    transition: background-color 999999s ease-in-out 0s;
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text) !important;
+  transition: background-color 999999s ease-in-out 0s;
+}
+
+/* ================= INPUT EFFECT ================= */
+
+input,
+textarea {
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+  border-color: #a855f7;
+}
+
+/* ================= FORM ANIMATION ================= */
+
+.animate-fadeUp {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= BUTTON EFFECT ================= */
+
+button {
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* ================= ICON HOVER ================= */
+
+footer img {
+  transition: all 0.3s ease;
+}
+
+footer img:hover {
+  filter: drop-shadow(0 0 10px #a855f7);
+  transform: scale(1.15);
+}
+
+/* ================= GRADIENT TEXT ================= */
+
+.gradient-text {
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+/* ================= WAVE ANIMATION ================= */
+
+
+/*  REAL SMOOTH WAVE MOTION */
+
+/* ================= WAVE ================= */
+
+
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes waveMoveReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+/* ===== WAVE WRAPPER ===== */
+/* ===== WAVE WRAPPER ===== */
+.wave-wrapper {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+/* ===== WAVES ===== */
+.wave {
+  position: absolute;
+  width: 200%;
+  bottom: 0;
+  left: 0;
+}
+
+/* layers */
+.wave1 {
+  animation: waveMove 12s linear infinite;
+  z-index: 1;
+}
+
+.wave2 {
+  animation: waveMoveReverse 16s linear infinite;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.wave3 {
+  animation: waveMove 20s linear infinite;
+  opacity: 0.4;
+  z-index: 3;
+}
+
+/* animation */
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes waveMoveReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #120022;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  text-align: center;
+}
+
+.logo {
+  font-size: 48px;
+  font-weight: bold;
+  background: linear-gradient(to right, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.name {
+  color: white;
+  margin-top: 5px;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.icons img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px #a855f7);
+}
+
+.copy {
+  margin-top: 15px;
+  color: rgba(255,255,255,0.6);
+}
+/* ===== ABOUT ANIMATION ===== */
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px) rotateY(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideInRight 1s ease forwards;
 }

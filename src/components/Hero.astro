@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import Avatar_180 from "../Avatar_180.webp";
+import MyPhoto from "../assets/Portfolio-pic.png";
 import Avatar_250 from "../Avatar_250.webp";
 ---
 
@@ -11,17 +11,17 @@ import Avatar_250 from "../Avatar_250.webp";
     <!-- Hero Intro Info -->
     <div class="w-full lg:w-fit flex justify-start items-center flex-col gap-8">
         <div class="text-[18px] lg:text-[26px] text-center lg:text-left">
-            <p class="Fade_Stagger">Hi! my name is,</p>
+            <p class="Fade_Stagger">Hii.. I'm,</p>
             <h1
-                class="Fade_Stagger gradientText font-ubuntu text-[4em] lg:text-[9rem] leading-tight"
+                class="Fade_Stagger gradientText font-ubuntu text-[4.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[5rem]"
             >
-                Chirag.
+                THANDLA LIKITH
             </h1>
             <p class="Fade_Stagger">I'm a Fullstack Web Developer.</p>
             <p class="Fade_Stagger">
-                I create
-                <span class="gradientText font-ubuntu">Exciting Stuff</span>
-                on the Internet.
+                Building 
+                <span class="gradientText font-ubuntu">Scalable web applications</span>
+                With AI Integrates
             </p>
         </div>
 
@@ -29,7 +29,7 @@ import Avatar_250 from "../Avatar_250.webp";
             class="Fade_Stagger flex justify-center lg:justify-start items-center w-full gap-10 py-4"
         >
             <a
-                href="https://github.com/ChiragChrg"
+                href="https://github.com/LIKHITHH-HUB"
                 title="GitHub"
                 target="_blank"
                 rel="author"
@@ -54,7 +54,7 @@ import Avatar_250 from "../Avatar_250.webp";
                 </svg>
             </a>
             <a
-                href="https://www.linkedin.com/in/chiragchrg/"
+                href="https://www.linkedin.com/in/thandla-likhith-in/"
                 title="LinkedIn"
                 target="_blank"
                 rel="noreferrer"
@@ -78,33 +78,9 @@ import Avatar_250 from "../Avatar_250.webp";
                     </path>
                 </svg>
             </a>
+            
             <a
-                href="https://x.com/ChrgChirag"
-                title="Twitter X"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Twitter X"
-                class="Fade_Stagger"
-            >
-                <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 24 24"
-                    color="#fff"
-                    height="30"
-                    width="30"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style="color: var(--heroSocialColor);;"
-                >
-                    <path
-                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-                    >
-                    </path>
-                </svg>
-            </a>
-            <a
-                href="https://www.instagram.com/chiragchrg/"
+                href="https://www.instagram.com/___likhith___15/"
                 title="Instagram"
                 target="_blank"
                 rel="noreferrer"
@@ -128,51 +104,24 @@ import Avatar_250 from "../Avatar_250.webp";
                     </path>
                 </svg>
             </a>
-            <a
-                href="https://www.google.com/search?q=chiragchrg"
-                title="Google Search"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Google Search"
-                class="Fade_Stagger"
-            >
-                <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 16 16"
-                    color="#fff"
-                    height="30"
-                    width="30"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style="color: var(--heroSocialColor);"
-                >
-                    <path
-                        d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"
-                    >
-                    </path>
-                </svg>
-            </a>
+            
         </div>
     </div>
 
     <!-- Hero Orbit Animation -->
     <div
-        class="Hero_Orbit relative flex_center w-[360px] lg:w-[500px] aspect-square"
+       class="Hero_Orbit relative flex_center w-[260px] sm:w-[320px] md:w-[400px] lg:w-[500px]"
     >
         <div
             class="Spring_Up flex_center w-[50%] aspect-square rounded-full z-10"
         >
             <Image
-                src={Avatar_180}
-                alt="Hero_Avatar"
-                class="object-cover"
-                width="250"
-                height="180"
-                srcset={`${Avatar_180.src} 180w, ${Avatar_250.src} 250w`}
-                sizes="(max-width: 640px) 180px, 250px"
-                loading="eager"
-            />
+    src={MyPhoto}
+    alt="Hero Avatar"
+    class="w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[260px] md:h-[260px] rounded-full object-cover mx-auto z-10"
+    width={260}
+    height={260}
+/>
         </div>
         <div class="Spring_Up Hero_Trail Trail1">
             <span class="Orbit_Dot"></span>

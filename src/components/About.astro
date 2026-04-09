@@ -1,57 +1,68 @@
 ---
 import { Image } from "astro:assets";
-import Avatar_250 from "../Avatar_250.webp";
-import { SectionTitle } from "./UI";
+import MyPhoto from "../assets/Portfolio-pic.png";
 ---
 
-<section id="about" class="w-full min-h-screen px-6 py-4 pt-14 bg-background">
-    <SectionTitle
-        title="About Me"
-        color="primary"
-        className="h-screen flex flex-col justify-center"
-    >
-        <div class="flex_center flex-col lg:flex-row w-full h-full py-10 gap-8">
-            <Image
-                src={Avatar_250}
-                alt="About_Avatar"
-                class="Fade_Up rounded-full scale-x-[-1] lg:mx-14"
-                width={225}
-                height={225}
-                loading="lazy"
-            />
+<section id="about" class="w-full px-4 py-24 bg-background overflow-hidden">
 
-            <div
-                class="Fade_Up w-full md:w-[80%] lg:w-[60%] flex justify-center items-start flex-col gap-4 lg:border-l border-primary py-8 lg:pl-10"
-            >
-                <h2 class="Fade_Up text-[1.5em] font-bold">Hey there! 👋🏻</h2>
-                <p class="Fade_Up text-justify">
-                    I'm Chirag, a full stack web developer with a strong passion
-                    for crafting digital realms that captivate and inspire.
-                </p>
-                <p class="Fade_Up text-justify">
-                    I specialize in creating dynamic and interactive UI/UX
-                    experience. I stay up to date with the latest tools and
-                    techniques and worked on a wide range of projects, from
-                    personal websites to large-scale applications, sharpening my
-                    problem solving skills and fostering creativity.
-                </p>
-                <p class="Fade_Up text-justify">
-                    If you're seeking a dedicated and passionate web developer,
-                    I'm eager to collaborate with you. Let's bring your ideas to
-                    life!
-                </p>
-            </div>
-        </div>
+  <div class="max-w-[1100px] mx-auto">
 
-        <!-- <picture class="flex_center">
-            <source
-                media="(prefers-color-scheme: dark)"
-                srcset="https://raw.githubusercontent.com/ChiragChrg/ChiragChrg/output/github-contribution-grid-snake-dark.svg"
-            />
-            <img
-                alt="github contribution grid snake animation"
-                src="https://raw.githubusercontent.com/ChiragChrg/ChiragChrg/output/github-contribution-grid-snake.svg"
-            />
-        </picture> -->
-    </SectionTitle>
+    <!-- TITLE -->
+    <h2 class="text-3xl font-bold text-white text-center mb-16">
+      About Me
+    </h2>
+
+    <!-- CONTENT -->
+    <div class="flex flex-col lg:flex-row items-center gap-16">
+
+      <!-- LEFT IMAGE -->
+      <div class="group relative">
+        <Image
+          src={MyPhoto}
+          alt="About Avatar"
+          class="w-[220px] h-[220px] md:w-[260px] md:h-[260px] rounded-full object-cover transition duration-500 group-hover:scale-105 group-hover:rotate-1"
+          width={260}
+          height={260}
+        />
+
+        <!-- Glow Effect -->
+        <div class="absolute inset-0 rounded-full bg-purple-500/20 blur-2xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+      </div>
+
+      <!-- RIGHT TEXT -->
+    <div class="w-full lg:w-[60%] ml-auto flex flex-col gap-6 text-white/80
+            text-left opacity-0 animate-slideIn">
+
+        <h3 class="text-2xl font-semibold text-white">
+          Hey there! 👋🏻
+        </h3>
+
+        <p class="leading-relaxed">
+          I'm Likhith, a Full Stack Web Developer with a strong focus on building scalable,
+          performance-driven web applications. I work across both frontend and backend,
+          turning ideas into clean, functional, and user-centric digital products.
+        </p>
+
+        <p class="leading-relaxed">
+          My approach to development is practical — I focus on solving real problems,
+          writing maintainable code, and continuously improving through hands-on projects.
+          I prioritize performance, usability, and clean architecture over unnecessary complexity.
+        </p>
+
+        <p class="leading-relaxed">
+          Focused on strengthening my development skills through consistent project building
+          and problem solving, while preparing to contribute effectively in a professional environment.
+        </p>
+
+        <p class="leading-relaxed">
+          Currently, I am seeking opportunities where I can contribute, learn, and grow as a developer.
+          If you're looking for someone consistent, fast-learning, and focused on delivering results — let's connect.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
