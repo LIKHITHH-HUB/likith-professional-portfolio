@@ -21,7 +21,7 @@ import ExpenseImg from "../assets/expense.png";
 import DiaryImg from "../assets/diary.png";
 import SmartFillImg from "../assets/smartfill.png";
 
-export const ProjectsList: ProjectsListType = [
+export const ProjectsList: any = [
     {
         Name: "Expense Tracker",
         ShortDesc: "Track and manage personal expenses with real-time balance updates.",

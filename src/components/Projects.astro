@@ -17,7 +17,7 @@ const { ProjectsList } = await ProjectInfo;
             class="Fade_Up relative w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:px-12 pb-6"
         >
             {
-                ProjectsList?.map((project) => {
+                ProjectsList?.map((project: any) => {
                     if (project?.hideProject) return;
 
                     return (
@@ -82,7 +82,7 @@ const { ProjectsList } = await ProjectInfo;
                                 <p class="text-center">{project.ShortDesc}</p>
 
                                 <div class="w-full flex_center gap-4 py-3">
-                                    {project.Tech.map((tech) => {
+                                    {project.Tech.map((tech: any) => {
                                         return (
                                             <Image
                                                 src={tech.icon}
