@@ -2,10 +2,7 @@
 import { ExternalLinkIcon, WrenchIcon } from "lucide-preact";
 import { SectionTitle } from "./UI";
 import { Image } from "astro:assets";
-
-// Lazy loading ProjectInfo
-const ProjectInfo = import("../utils/ProjectsList");
-const { ProjectsList } = await ProjectInfo;
+import { ProjectsList } from "../utils/ProjectsList";
 ---
 
 <section
@@ -18,82 +15,77 @@ const { ProjectsList } = await ProjectInfo;
         >
             {
                 ProjectsList?.map((project: any) => {
-                    if (project?.hideProject) return;
+                    if (project?.hideProject) return null;
 
                     return (
-                        <div class="Project_Stagger Card_Main w-full h-fit flex_center flex-col bg-cardGradient overflow-hidden rounded-[0.4em] mt-3 opacity-0">
+                        <div class="Project_Stagger Card_Main w-full flex flex-col bg-cardGradient overflow-hidden rounded-[0.4em] mt-3">
+
+                            <!-- IMAGE -->
                             <a
-                                href={`/projects/${project?.Name.replaceAll(
-                                    " ",
-                                    "-",
-                                ).toLowerCase()}`}
-                                class="Projects_Preview w-full relative rounded-[0.4em]"
+                                href={`/projects/${project?.Name.replaceAll(" ", "-").toLowerCase()}`}
+                                class="w-full relative"
                             >
                                 <Image
-                                    class="Card_Image bg-cover opacity-50 transition-opacity w-full"
-                                    style={{
-                                        borderRadius: "0.4em 0.4em 0 100%",
-                                    }}
+                                    class="opacity-50 w-full"
                                     src={project.Shot}
-                                    alt={`Project_ScreenShot_${project.Name}`}
-                                    widths={[346, project.Shot.width]}
-                                    sizes={`(max-width: 720px) 346px, ${project.Shot.width}px`}
-                                    loading="lazy"
+                                    alt={project.Name}
                                 />
+
                                 <Image
                                     class="absolute left-6 bottom-6"
                                     src={project.Logo}
-                                    alt={`Project_Logo_${project.Name}`}
+                                    alt={project.Name}
                                     width={project.LogoSize}
                                     height={project.LogoSize}
-                                    loading="lazy"
                                 />
                             </a>
-                            <div class="w-full text-[0.95em] px-4">
+
+                            <!-- CONTENT -->
+                            <div class="w-full px-4 py-3">
+
+                                <!-- TITLE + LINK -->
                                 <div class="flex justify-between items-center">
-                                    <h3 class="font-ubuntu text-[1.4em] py-3">
+                                    <h3 class="font-ubuntu text-[1.4em]">
                                         {project.Name}
                                     </h3>
-                                    <div class="flex">
-                                        {project.Status === "development" && (
-                                            <div class="flex_center gap-2 px-1 py-0.5 text-orange-400">
-                                                <WrenchIcon size={16} />
 
-                                                <span class="text-[0.8em]">
-                                                    Under Development
-                                                </span>
+                                    <div class="flex items-center gap-2">
+
+                                        {project.Status === "development" && (
+                                            <div class="flex items-center gap-1 text-orange-400 text-sm">
+                                                <WrenchIcon size={14} />
+                                                <span>Dev</span>
                                             </div>
                                         )}
 
                                         <a
                                             href={project.Link}
-                                            title={`${project.Name} Live`}
                                             target="_blank"
-                                            rel="noreferrer"
-                                            class="Projects_Link flex"
                                         >
-                                            <ExternalLinkIcon aria-hidden="true" />
-                                            <span class="sr-only">
-                                                Demo for {project.Name}
-                                            </span>
+                                            <ExternalLinkIcon />
                                         </a>
                                     </div>
                                 </div>
-                                <p class="text-center">{project.ShortDesc}</p>
 
-                                <div class="w-full flex_center gap-4 py-3">
-                                    project.Tech.map((tech: any) => {
-                                        return (
+                                <!-- DESCRIPTION -->
+                                <p class="text-sm text-center mt-2">
+                                    {project.ShortDesc}
+                                </p>
+
+                                <!--  FIXED TECH STACK -->
+                                <div class="flex justify-center gap-3 mt-3">
+                                    {
+                                        project.Tech.map((tech: any) => (
                                             <Image
                                                 src={tech.icon}
-                                                alt={`TechIcon ${tech.title}`}
+                                                alt={`Tech ${tech.title}`}
                                                 width={22}
                                                 height={22}
-                                                loading="lazy"
                                             />
-                                        );
-                                    })}
+                                        ))
+                                    }
                                 </div>
+
                             </div>
                         </div>
                     );
