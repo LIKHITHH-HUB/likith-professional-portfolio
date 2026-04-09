@@ -82,7 +82,7 @@ const { ProjectsList } = await ProjectInfo;
                                 <p class="text-center">{project.ShortDesc}</p>
 
                                 <div class="w-full flex_center gap-4 py-3">
-                                    {project.Tech.map((tech: any) => {
+                                    project.Tech.map((tech: any) => {
                                         return (
                                             <Image
                                                 src={tech.icon}

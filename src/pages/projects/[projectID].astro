@@ -21,99 +21,104 @@ const { projectID } = Astro.params;
 
 import { Image } from "astro:assets";
 import { ProjectLayout } from "../../layouts";
-import { CheckIcon, ClipboardCopyIcon, ExternalLinkIcon } from "lucide-preact";
+import { ExternalLinkIcon } from "lucide-preact";
 import { CenterTitle, SectionTitle } from "../../components/UI";
 
-const ProjectInfo = import("../../utils/ProjectsList");
-const { ProjectsList } = await ProjectInfo;
+// ✅ CLEAN IMPORT
+import { ProjectsList } from "../../utils/ProjectsList";
 
-//  FIXED TYPE HERE
-const [project] = ProjectsList.filter(
+// ✅ SAFE FILTER
+const project = ProjectsList.find(
     (itm: any) =>
-        itm.Name.replaceAll(" ", "-").toLowerCase() === projectID,
+        itm.Name.replaceAll(" ", "-").toLowerCase() === projectID
 );
+
+// ✅ SAFETY CHECK (IMPORTANT)
+if (!project) {
+    throw new Error("Project not found");
+}
 ---
 
 <ProjectLayout
     title={`${project.Name} | Likhith`}
     description={project.ShortDesc}
 >
+
+    <!-- BACKGROUND -->
     <div class="Fade_In flex_center absolute inset-0 w-full h-full z-[-1]">
         <Image
             src={project.Shot}
-            alt={`${project.Name}_BG_Image`}
+            alt={`${project.Name}_BG`}
             class="w-full h-full opacity-50 blur-md p-6 object-cover"
-            loading="eager"
         />
         <div class="bg-imgOverlayGradient w-full h-full absolute inset-0"></div>
     </div>
 
+    <!-- HEADER -->
     <div class="flex_center flex-col gap-4 py-4">
         <Image
             src={project.Logo}
-            alt={`${project.Name}_Image`}
-            class="Fade_Up"
+            alt={`${project.Name}`}
             width={100}
             height={100}
-            loading="eager"
         />
 
-        <h1 class="Fade_Up font-ubuntu text-[1.6em] md:text-[1.8em] text-center">
+        <h1 class="font-ubuntu text-[1.6em] md:text-[1.8em] text-center">
             {project.Name}
         </h1>
 
+        <!-- TECH ICONS -->
         <div class="w-full flex_center gap-4">
             {
                 project?.Tech?.map((tech: any, index: number) => (
                     <Image
                         src={tech.icon}
-                        alt={`TechIcon_${index}`}
+                        alt={`tech-${index}`}
                         width={28}
                         height={28}
-                        class="Fade_Stagger"
-                        loading="eager"
                     />
                 ))
             }
         </div>
 
-        <div class="flex_center gap-4 text-[1em]">
-            <a href={project.Source} target="_blank" class="Fade_Stagger flex_center gap-2 px-4 py-2 rounded">
-                <span>Source Code</span>
+        <!-- BUTTONS -->
+        <div class="flex_center gap-4">
+            <a href={project.Source} target="_blank">
+                Source Code
             </a>
 
-            <a href={project.Link} target="_blank" class="Fade_Stagger flex_center gap-2 px-4 py-2 rounded">
+            <a href={project.Link} target="_blank">
                 <ExternalLinkIcon />
-                <span>Live Demo</span>
+                Live Demo
             </a>
         </div>
     </div>
 
-    <h2 class="Fade_Up text-[1.5em] pt-4 pb-3 w-full">
-        About the project.
+    <!-- ABOUT -->
+    <h2 class="text-[1.5em] pt-4 pb-3">
+        About the project
     </h2>
 
     <div class="flex flex-col xl:flex-row gap-4 py-10">
         <Image
             src={project.Mockup}
-            alt={`${project.Name}_Mockup_Image`}
+            alt="mockup"
             width={600}
-            class="Fade_Up"
-            loading="eager"
         />
 
-        <div class="Fade_Up flex flex-col gap-4">
-            <p class="text-[1.1em] mt-4 px-4">
+        <div>
+            <p class="text-[1.1em] px-4">
                 {project.Desc}
             </p>
         </div>
     </div>
 
+    <!-- FEATURES -->
     <SectionTitle title="Features" color="primary">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {
                 project.features.map((items: any) => (
-                    <div class="Fade_Up p-4 rounded-md">
+                    <div>
                         <span class="font-ubuntu text-[1.125em]">
                             {items.title}
                         </span>
@@ -124,19 +129,21 @@ const [project] = ProjectsList.filter(
         </div>
     </SectionTitle>
 
+    <!-- TECH STACK -->
     <CenterTitle title="Tech Stack" color="secondary" />
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-40">
         {
             project.Tech.map((tech: any) => (
-                <div class="Fade_Stagger flex flex-col gap-4 p-4 rounded-md">
+                <div>
                     <div class="flex gap-4">
                         <Image src={tech.icon} alt={tech.title} width={40} height={40} />
-                        <span class="text-[1.2em]">{tech.title}</span>
+                        <span>{tech.title}</span>
                     </div>
                     <p>{tech.description}</p>
                 </div>
             ))
         }
     </div>
+
 </ProjectLayout>
