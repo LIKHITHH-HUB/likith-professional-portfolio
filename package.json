@@ -15,7 +15,6 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint .",
-    "prepare": "husky",
     "release": "semantic-release",
     "release:dry": "semantic-release --dry-run"
   },
