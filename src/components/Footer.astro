@@ -1,11 +1,8 @@
 ---
-import { Image } from "astro:assets";
-import {
-    GithubIcon,
-    InstagramIcon,
-    LinkedinIcon,
-    GmailIcon,
-} from "../assets/SVGs";
+import GithubIcon from "../assets/Icons/github.svg";
+import InstagramIcon from "../assets/Icons/instagram.svg";
+import LinkedinIcon from "../assets/Icons/linkedin.svg";
+import GmailIcon from "../assets/Icons/gmail.svg";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -41,26 +38,26 @@ const currentYear = new Date().getFullYear();
         <h1 class="logo">L</h1>
 
         <p class="name">LIKITH | PORTFOLIO</p>
+       
+       <div class="icons">
 
-        <div class="icons">
+    <a href="https://github.com/LIKHITHH-HUB" target="_blank">
+        <img src={GithubIcon.src} alt="GitHub" width="28" />
+    </a>
 
-            <a href="https://github.com/LIKHITHH-HUB" target="_blank">
-                <Image src={GithubIcon} alt="GitHub" width={28} height={28} />
-            </a>
+    <a href="https://www.instagram.com/___likhith___15/" target="_blank">
+        <img src={InstagramIcon.src} alt="Instagram" width="28" />
+    </a>
 
-            <a href="https://www.instagram.com/___likhith___15/" target="_blank">
-                <Image src={InstagramIcon} alt="Instagram" width={28} height={28} />
-            </a>
+    <a href="https://www.linkedin.com/in/thandla-likhith-in/" target="_blank">
+        <img src={LinkedinIcon.src} alt="LinkedIn" width="28" />
+    </a>
 
-            <a href="https://www.linkedin.com/in/thandla-likhith-in/" target="_blank">
-                <Image src={LinkedinIcon} alt="LinkedIn" width={28} height={28} />
-            </a>
+    <a href="mailto:likhithrao2223@gmail.com">
+        <img src={GmailIcon.src} alt="Email" width="28" />
+    </a>
 
-            <a href="mailto:likhithrao2223@gmail.com">
-                <Image src={GmailIcon} alt="Email" width={28} height={28} />
-            </a>
-
-        </div>
+</div>
 
         <p class="copy">© {currentYear} Likhith. All rights reserved.</p>
 
