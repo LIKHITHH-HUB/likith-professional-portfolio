@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## <small>1.0.1 (2026-04-10)</small>
+
+* fix: footer svg src issue ([10a208c](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/10a208c))
+* FINAL CLEAN: removed raw + fixed all icon paths ([810825e](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/810825e))
+* final fix: footer svg + astro image issue resolved ([0e50023](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/0e50023))
+* FINAL FIX: removed husky + fixed astro build ([f4efcd4](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/f4efcd4))
+* final fix: svg + contact section build error solved ([be204ba](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/be204ba))
+* fixed icons path case issue ([a96608b](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/a96608b))
+* fixed project page fully ([6f23ebc](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/6f23ebc))
+* fixed project page types ([8bd2483](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/8bd2483))
+* fixed projects syntax error ([41ffc2b](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/41ffc2b))
+* fixed svg rendering issue completely ([0e13366](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/0e13366))
+* redeploy ([20dfae0](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/20dfae0))
+* removed unused import ([851ce92](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/851ce92))
+
 ## 1.0.0 (2026-04-09)
 
 * About Page Done, created FadeUp Comp + min Fixes ([21211d1](https://github.com/LIKHITHH-HUB/likith-professional-portfolio/commit/21211d1))
