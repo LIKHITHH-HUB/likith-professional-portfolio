@@ -1,13 +1,16 @@
 ---
 import { CenterTitle } from "./UI";
 import { ContactForm } from "./Preact";
-import { ContactArt } from "../assets/SVGs";
 import { Image } from "astro:assets";
 
+//  Import SVGs as normal files
 import Github from "../assets/Icons/github.svg";
 import Linkedin from "../assets/Icons/linkedin.svg";
 import Instagram from "../assets/Icons/instagram.svg";
 import Email from "../assets/Icons/gmail.svg";
+
+//  FIX: import image instead of SVG module
+import ContactArt from "../assets/Portfolio-pic.png";
 ---
 
 <section
@@ -48,23 +51,25 @@ import Email from "../assets/Icons/gmail.svg";
             >
 
                 <!-- ICONS -->
-<a href="mailto:likhithrao2223@gmail.com" class="socialIcon">
-    <img src={Email.src} alt="email" width="24" />
-</a>
+                <a href="mailto:likhithrao2223@gmail.com" class="socialIcon">
+                    <img src={Email.src} alt="email" width="24" />
+                </a>
 
-<a href="https://github.com/LIKHITHH-HUB" class="socialIcon">
-    <img src={Github.src} alt="github" width="24" />
-</a>
+                <a href="https://github.com/LIKHITHH-HUB" class="socialIcon">
+                    <img src={Github.src} alt="github" width="24" />
+                </a>
 
-<a href="https://www.linkedin.com/in/thandla-likhith-in/" class="socialIcon">
-    <img src={Linkedin.src} alt="linkedin" width="24" />
-</a>
+                <a href="https://www.linkedin.com/in/thandla-likhith-in/" class="socialIcon">
+                    <img src={Linkedin.src} alt="linkedin" width="24" />
+                </a>
 
-<a href="https://www.instagram.com/___likhith___15/" class="socialIcon">
-    <img src={Instagram.src} alt="instagram" width="24" />
-</a>
+                <a href="https://www.instagram.com/___likhith___15/" class="socialIcon">
+                    <img src={Instagram.src} alt="instagram" width="24" />
+                </a>
 
-            <!-- GUY -->
+            </div>
+
+            <!-- IMAGE (NOT SVG MODULE) -->
             <Image
                 src={ContactArt}
                 alt="contact"
@@ -93,10 +98,9 @@ import Email from "../assets/Icons/gmail.svg";
     transition: all 0.3s ease;
 }
 
-.socialIcon span {
+.socialIcon img {
     width: 24px;
     height: 24px;
-    display: block;
 }
 
 /* POSITION */
@@ -105,7 +109,7 @@ import Email from "../assets/Icons/gmail.svg";
 .socialIcon:nth-child(3) { right: -10px; top: 50%; transform: translateY(-50%); }
 .socialIcon:nth-child(4) { bottom: -10px; left: 50%; transform: translateX(-50%); }
 
-/* HOVER EFFECT */
+/* HOVER */
 .socialIcon:hover {
     transform: scale(1.15);
     border-color: #a855f7;
