@@ -17,13 +17,11 @@ import { ExternalLinkIcon } from "lucide-preact";
 import { CenterTitle, SectionTitle } from "../../components/UI";
 import { ProjectsList } from "../../utils/ProjectsList";
 
-// SAFE FIND
 const project = ProjectsList.find(
     (itm: any) =>
         itm.Name.replaceAll(" ", "-").toLowerCase() === projectID
 );
 
-// HARD FAIL
 if (!project) {
     throw new Error(`Project not found for ID: ${projectID}`);
 }
@@ -59,16 +57,14 @@ if (!project) {
 
         <!-- TECH ICONS -->
         <div class="flex gap-4">
-            {
-                project.Tech && project.Tech.map((tech: any, index: number) => (
-                    <Image
-                        src={tech.icon}
-                        alt={`tech-${index}`}
-                        width={28}
-                        height={28}
-                    />
-                ))
-            }
+            {project.Tech?.map((tech: any, index: number) => (
+                <Image
+                    src={tech.icon}
+                    alt={`tech-${index}`}
+                    width={28}
+                    height={28}
+                />
+            ))}
         </div>
 
         <!-- BUTTONS -->
@@ -106,16 +102,14 @@ if (!project) {
     <!-- FEATURES -->
     <SectionTitle title="Features" color="primary">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {
-                project.features && project.features.map((item: any) => (
-                    <div>
-                        <span class="text-[1.125em]">
-                            {item.title}
-                        </span>
-                        <p>{item.description}</p>
-                    </div>
-                ))
-            }
+            {project.features?.map((item: any) => (
+                <div>
+                    <span class="text-[1.125em]">
+                        {item.title}
+                    </span>
+                    <p>{item.description}</p>
+                </div>
+            ))}
         </div>
     </SectionTitle>
 
@@ -123,22 +117,20 @@ if (!project) {
     <CenterTitle title="Tech Stack" color="secondary" />
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-40">
-        {
-            project.Tech && project.Tech.map((tech: any) => (
-                <div>
-                    <div class="flex gap-4">
-                        <Image
-                            src={tech.icon}
-                            alt={tech.title}
-                            width={40}
-                            height={40}
-                        />
-                        <span>{tech.title}</span>
-                    </div>
-                    <p>{tech.description}</p>
+        {project.Tech?.map((tech: any) => (
+            <div>
+                <div class="flex gap-4">
+                    <Image
+                        src={tech.icon}
+                        alt={tech.title}
+                        width={40}
+                        height={40}
+                    />
+                    <span>{tech.title}</span>
                 </div>
-            ))
-        }
+                <p>{tech.description}</p>
+            </div>
+        ))}
     </div>
 
 </ProjectLayout>
