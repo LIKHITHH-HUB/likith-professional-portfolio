@@ -33,22 +33,22 @@ if (!project) {
 
     <div>
       {project.Tech?.map((tech: any, index: number) => (
-  <img
-    src={tech.icon}
-    alt={`tech-${index}`}
-    width="28"
-    height="28"
-  />
-))}
+        <img
+          src={tech.icon}
+          alt={`tech-${index}`}
+          width="28"
+          height="28"
+        />
+      ))}
     </div>
 
     <div>
       <a href={project.Source} target="_blank">
-        {"Source Code"}
+        Source Code
       </a>
 
       <a href={project.Link || "#"} target="_blank">
-        {"Live Demo"}
+        Live Demo
       </a>
     </div>
   </div>
