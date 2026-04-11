@@ -32,15 +32,14 @@ if (!project) {
     <h1>{project.Name}</h1>
 
     <div>
-      {project.Tech?.map((tech: any, index: number) => {
-          <img
-            src={tech.icon}
-            alt={`tech-${index}`}
-            width="28"
-            height="28"
-          />
-        
-      })}
+      {project.Tech?.map((tech: any, index: number) => (
+  <img
+    src={tech.icon}
+    alt={`tech-${index}`}
+    width="28"
+    height="28"
+  />
+))}
     </div>
 
     <div>
