@@ -33,14 +33,16 @@ if (!project) {
     <h1>{project.Name}</h1>
 
     <div>
-      {project.Tech?.map((tech: any, index: number) => (
-        <Image
-          src={tech.icon}
-          alt={`tech-${index}`}
-          width={28}
-          height={28}
-        />
-      ))}
+      {project.Tech?.map((tech: any, index: number) => {
+        return (
+          <Image
+            src={tech.icon}
+            alt={`tech-${index}`}
+            width={28}
+            height={28}
+          />
+        );
+      })}
     </div>
 
     <div>
@@ -48,7 +50,7 @@ if (!project) {
         {"Source Code"}
       </a>
 
-      <a href={project.Link} target="_blank">
+      <a href={project.Link || "#"} target="_blank">
         {"Live Demo"}
       </a>
     </div>
