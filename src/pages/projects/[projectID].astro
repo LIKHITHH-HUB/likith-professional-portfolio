@@ -17,7 +17,7 @@ import { ExternalLinkIcon } from "lucide-preact";
 import { CenterTitle, SectionTitle } from "../../components/UI";
 import { ProjectsList } from "../../utils/ProjectsList";
 
-// SAFE MATCH
+// SAFE FIND
 const project = ProjectsList.find(
     (itm: any) =>
         itm.Name.replaceAll(" ", "-").toLowerCase() === projectID
@@ -35,63 +35,52 @@ if (!project) {
 >
 
     <!-- BACKGROUND -->
-    {project.Shot && (
-        <div class="flex_center absolute inset-0 w-full h-full z-[-1]">
-            <Image
-                src={project.Shot}
-                alt={`${project.Name}_BG`}
-                class="w-full h-full opacity-50 blur-md p-6 object-cover"
-            />
-            <div class="bg-imgOverlayGradient w-full h-full absolute inset-0"></div>
-        </div>
-    )}
+    <div class="flex_center absolute inset-0 w-full h-full z-[-1]">
+        <Image
+            src={project.Shot}
+            alt={`${project.Name}_BG`}
+            class="w-full h-full opacity-50 blur-md p-6 object-cover"
+        />
+        <div class="bg-imgOverlayGradient w-full h-full absolute inset-0"></div>
+    </div>
 
     <!-- HEADER -->
     <div class="flex_center flex-col gap-4 py-4">
-
-        {project.Logo && (
-            <Image
-                src={project.Logo}
-                alt={project.Name}
-                width={100}
-                height={100}
-            />
-        )}
+        <Image
+            src={project.Logo}
+            alt={project.Name}
+            width={100}
+            height={100}
+        />
 
         <h1 class="text-[1.6em] md:text-[1.8em] text-center">
             {project.Name}
         </h1>
 
-        <!--  TECH ICONS  -->
+        <!-- TECH ICONS -->
         <div class="flex gap-4">
             {
-                project.Tech?.map((tech: any, index: number) => (
-                    tech?.icon ? (
-                        <Image
-                            src={tech.icon}
-                            alt={tech.title || `tech-${index}`}
-                            width={28}
-                            height={28}
-                        />
-                    ) : null
+                project.Tech && project.Tech.map((tech: any, index: number) => (
+                    <Image
+                        src={tech.icon}
+                        alt={`tech-${index}`}
+                        width={28}
+                        height={28}
+                    />
                 ))
             }
         </div>
 
         <!-- BUTTONS -->
         <div class="flex gap-4">
-            {project.Source && (
-                <a href={project.Source} target="_blank">
-                    Source Code
-                </a>
-            )}
+            <a href={project.Source} target="_blank">
+                Source Code
+            </a>
 
-            {project.Link && (
-                <a href={project.Link} target="_blank">
-                    <ExternalLinkIcon />
-                    Live Demo
-                </a>
-            )}
+            <a href={project.Link} target="_blank">
+                <ExternalLinkIcon />
+                Live Demo
+            </a>
         </div>
     </div>
 
@@ -101,14 +90,11 @@ if (!project) {
     </h2>
 
     <div class="flex flex-col xl:flex-row gap-4 py-10">
-
-        {project.Mockup && (
-            <Image
-                src={project.Mockup}
-                alt="mockup"
-                width={600}
-            />
-        )}
+        <Image
+            src={project.Mockup}
+            alt="mockup"
+            width={600}
+        />
 
         <div>
             <p class="text-[1.1em] px-4">
@@ -121,7 +107,7 @@ if (!project) {
     <SectionTitle title="Features" color="primary">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {
-                project.features?.map((item: any) => (
+                project.features && project.features.map((item: any) => (
                     <div>
                         <span class="text-[1.125em]">
                             {item.title}
@@ -138,17 +124,15 @@ if (!project) {
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-40">
         {
-            project.Tech?.map((tech: any) => (
+            project.Tech && project.Tech.map((tech: any) => (
                 <div>
                     <div class="flex gap-4">
-                        {tech?.icon && (
-                            <Image
-                                src={tech.icon}
-                                alt={tech.title}
-                                width={40}
-                                height={40}
-                            />
-                        )}
+                        <Image
+                            src={tech.icon}
+                            alt={tech.title}
+                            width={40}
+                            height={40}
+                        />
                         <span>{tech.title}</span>
                     </div>
                     <p>{tech.description}</p>
