@@ -29,18 +29,13 @@ if (!project) {
   description={project.ShortDesc}
 >
   <div>
-    <h1>{project.Name}</h1>
-
+  {project.Tech?.map((tech: any, index: number) => (
     <div>
-      {project.Tech?.map((tech: any, index: number) => (
-        <img
-          src={tech.icon}
-          alt={`tech-${index}`}
-          width="28"
-          height="28"
-        />
-      ))}
+      {tech.icon && <tech.icon />}
+      <span>{tech.title}</span>
     </div>
+  ))}
+</div>
 
     <div>
       <a href={project.Source} target="_blank">
