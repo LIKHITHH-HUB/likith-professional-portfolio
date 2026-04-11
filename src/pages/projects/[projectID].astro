@@ -29,7 +29,6 @@ if (!project) {
     title={`${project.Name} | Likhith`}
     description={project.ShortDesc}
 >
-
     <div class="flex_center flex-col gap-4 py-4">
         <h1>{project.Name}</h1>
 
@@ -46,14 +45,12 @@ if (!project) {
 
         <div class="flex gap-4">
             <a href={project.Source} target="_blank">
-                Source Code
+                {"Source Code"}
             </a>
 
-            <!-- FIXED -->
             <a href={project.Link} target="_blank">
-            {"Live Demo ->"}
+                {"Live Demo"}
             </a>
         </div>
     </div>
-
 </ProjectLayout>
