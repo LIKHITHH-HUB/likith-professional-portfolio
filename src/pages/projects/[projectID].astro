@@ -1,12 +1,12 @@
 ---
 export async function getStaticPaths() {
-    const { ProjectsList } = await import("../../utils/ProjectsList");
+  const { ProjectsList } = await import("../../utils/ProjectsList");
 
-    return ProjectsList.map((project: any) => ({
-        params: {
-            projectID: project.Name.replaceAll(" ", "-").toLowerCase(),
-        },
-    }));
+  return ProjectsList.map((project: any) => ({
+    params: {
+      projectID: project.Name.replaceAll(" ", "-").toLowerCase(),
+    },
+  }));
 }
 
 const { projectID } = Astro.params;
@@ -16,41 +16,41 @@ import { ProjectLayout } from "../../layouts";
 import { ProjectsList } from "../../utils/ProjectsList";
 
 const project = ProjectsList.find(
-    (itm: any) =>
-        itm.Name.replaceAll(" ", "-").toLowerCase() === projectID
+  (itm: any) =>
+    itm.Name.replaceAll(" ", "-").toLowerCase() === projectID
 );
 
 if (!project) {
-    throw new Error(`Project not found for ID: ${projectID}`);
+  throw new Error(`Project not found for ID: ${projectID}`);
 }
 ---
 
 <ProjectLayout
-    title={`${project.Name} | Likhith`}
-    description={project.ShortDesc}
+  title={`${project.Name} | Likhith`}
+  description={project.ShortDesc}
 >
-    <div class="flex_center flex-col gap-4 py-4">
-        <h1>{project.Name}</h1>
+  <div>
+    <h1>{project.Name}</h1>
 
-        <div class="flex gap-4">
-            {project.Tech?.map((tech: any, index: number) => (
-                <Image
-                    src={tech.icon}
-                    alt={`tech-${index}`}
-                    width={28}
-                    height={28}
-                />
-            ))}
-        </div>
-
-        <div class="flex gap-4">
-            <a href={project.Source} target="_blank">
-                {"Source Code"}
-            </a>
-
-            <a href={project.Link} target="_blank">
-                {"Live Demo"}
-            </a>
-        </div>
+    <div>
+      {project.Tech?.map((tech: any, index: number) => (
+        <Image
+          src={tech.icon}
+          alt={`tech-${index}`}
+          width={28}
+          height={28}
+        />
+      ))}
     </div>
+
+    <div>
+      <a href={project.Source} target="_blank">
+        {"Source Code"}
+      </a>
+
+      <a href={project.Link} target="_blank">
+        {"Live Demo"}
+      </a>
+    </div>
+  </div>
 </ProjectLayout>
