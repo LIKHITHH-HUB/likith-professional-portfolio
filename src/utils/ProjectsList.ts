@@ -31,7 +31,7 @@ export const ProjectsList: any = [
         Mockup: ExpenseImg,
         Theme: "#8b5cf6",
         Status: "completed",
-        Link: "", // ✅ FIXED
+        Link: "", //  FIXED
         Source: "https://github.com/LIKHITHH-HUB/expense-Tracker",
         Tech: [
             TechInfo.HTML,

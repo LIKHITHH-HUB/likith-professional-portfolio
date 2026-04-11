@@ -35,11 +35,11 @@ if (!project) {
     <div>
       {project.Tech?.map((tech: any, index: number) => {
         return (
-          <Image
+          <img
             src={tech.icon}
             alt={`tech-${index}`}
-            width={28}
-            height={28}
+            width="28"
+            height="28"
           />
         );
       })}
