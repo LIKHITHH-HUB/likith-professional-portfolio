@@ -1,10 +1,8 @@
 ---
-import { Image } from "astro:assets";
-
 type Props = {
     stack: {
         name: string;
-        icon: ImageMetadata;
+        icon: any; //  allow svg component
         link: string;
     }[];
 };
@@ -14,24 +12,23 @@ const { stack }: Props = Astro.props;
 
 <div class="Fade_Up grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
     {
-        stack.map((obj) => (
-            <a
-                href={obj.link}
-                title={obj.name}
-                class="Fade_Stagger flex_center flex-col gap-2 min-w-24 aspect-square rounded-lg bg-skillGradient"
-                target="_blank"
-                rel="noreferrer"
-            >
-                <div class="flex_center min-h-[35px] aspect-square">
-                    <Image
-                        src={obj.icon}
-                        alt={obj.name.replaceAll(" ", "_") + "_Icon"}
-                        width={35}
-                        height={35}
-                    />
-                </div>
-                <span class="text-[0.9em]">{obj.name}</span>
-            </a>
-        ))
+        stack.map((obj) => {
+            const Icon = obj.icon; //  component
+
+            return (
+                <a
+                    href={obj.link}
+                    title={obj.name}
+                    class="Fade_Stagger flex_center flex-col gap-2 min-w-24 aspect-square rounded-lg bg-skillGradient"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    <div class="flex_center min-h-[35px] aspect-square">
+                        <Icon width="35" height="35" /> {/* ✅ FIX */}
+                    </div>
+                    <span class="text-[0.9em]">{obj.name}</span>
+                </a>
+            );
+        })
     }
 </div>

@@ -1,7 +1,8 @@
 ---
-export async function getStaticPaths() {
-  const { ProjectsList } = await import("../../utils/ProjectsList");
+import { ProjectLayout } from "../../layouts";
+import { ProjectsList } from "../../utils/ProjectsList";
 
+export async function getStaticPaths() {
   return ProjectsList.map((project: any) => ({
     params: {
       projectID: project.Name.replaceAll(" ", "-").toLowerCase(),
@@ -11,40 +12,41 @@ export async function getStaticPaths() {
 
 const { projectID } = Astro.params;
 
-import { ProjectLayout } from "../../layouts";
-import { ProjectsList } from "../../utils/ProjectsList";
-
 const project = ProjectsList.find(
   (itm: any) =>
     itm.Name.replaceAll(" ", "-").toLowerCase() === projectID
 );
 
+// IMPORTANT: don't crash build
 if (!project) {
-  throw new Error(`Project not found for ID: ${projectID}`);
+  return {
+    props: {
+      project: null,
+    },
+  };
 }
 ---
 
-<ProjectLayout
-  title={`${project.Name} | Likhith`}
-  description={project.ShortDesc}
->
-  <div>
-  {project.Tech?.map((tech: any, index: number) => (
+{project ? (
+  <ProjectLayout
+    title={`${project.Name} | Likith`}
+    description={project.ShortDesc}
+  >
     <div>
-      {tech.icon && <tech.icon />}
-      <span>{tech.title}</span>
-    </div>
-  ))}
-</div>
+      <h1>{project.Name}</h1>
 
-    <div>
-      <a href={project.Source} target="_blank">
-        Source Code
-      </a>
+      <div>
+        {project.Tech && project.Tech.map((tech: any) => (
+          <span>{tech.title}</span>
+        ))}
+      </div>
 
-      <a href={project.Link || "#"} target="_blank">
-        Live Demo
-      </a>
+      <div>
+        <a href={project.Source} target="_blank">Source Code</a>
+        <a href={project.Link || "#"} target="_blank">Live Demo</a>
+      </div>
     </div>
-  </div>
-</ProjectLayout>
+  </ProjectLayout>
+) : (
+  <h1>Project Not Found</h1>
+)}

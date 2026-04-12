@@ -3,12 +3,12 @@ import {
 } from "../assets/Icons";
 
 const TechInfo = {
-    HTML: { title: "HTML", description: "", icon: HtmlIcon },
-    CSS: { title: "CSS", description: "", icon: CssIcon },
-    JavaScript: { title: "JavaScript", description: "", icon: JsIcon },
-    Node: { title: "Node.js", description: "", icon: NodeIcon },
-    MySQL: { title: "MySQL", description: "", icon: MysqlIcon },
-    RESTAPI: { title: "REST API", description: "", icon: RestApiIcon }
+    HTML: { title: "HTML", description: "", icon: HtmlIcon.src },
+    CSS: { title: "CSS", description: "", icon: CssIcon.src },
+    JavaScript: { title: "JavaScript", description: "", icon: JsIcon.src },
+    Node: { title: "Node.js", description: "", icon: NodeIcon.src },
+    MySQL: { title: "MySQL", description: "", icon: MysqlIcon.src },
+    RESTAPI: { title: "REST API", description: "", icon: RestApiIcon.src }
 };
 
 const FeatureList = {
@@ -96,7 +96,7 @@ export const ProjectsList: any = [
         Mockup: DiaryImg,
         Theme: "#22c55e",
         Status: "completed",
-        Link: "", // ✅ FIXED
+        Link: "", 
         Source: "https://github.com/LIKHITHH-HUB/My-Diary",
         Tech: [
             TechInfo.HTML,

@@ -74,17 +74,19 @@ import { ProjectsList } from "../utils/ProjectsList";
 
                                 <!--  FIXED TECH STACK -->
                                 <div class="flex justify-center gap-3 mt-3">
-                                    {
-                                        project.Tech.map((tech: any) => (
-                                            <Image
-                                                src={tech.Icon}
-                                                alt={`Tech ${tech.title}`}
-                                                width={22}
-                                                height={22}
-                                            />
-                                        ))
-                                    }
-                                </div>
+  {
+    project.Tech.map((tech: any) => (
+      tech.icon && (
+        <img
+          src={tech.icon}
+          alt={`Tech ${tech.title}`}
+          width="22"
+          height="22"
+        />
+      )
+    ))
+  }
+</div>
 
                             </div>
                         </div>
