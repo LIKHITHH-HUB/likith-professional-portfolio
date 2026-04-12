@@ -9,8 +9,7 @@ import Linkedin from "../assets/Icons/linkedin.svg";
 import Instagram from "../assets/Icons/instagram.svg";
 import Email from "../assets/Icons/gmail.svg";
 
-//  FIX: import image instead of SVG module
-import ContactArt from "../assets/Portfolio-pic.png";
+import ContactArt from "../assets/SVGs/ContactVector.svg";
 ---
 
 <section
@@ -68,13 +67,11 @@ import ContactArt from "../assets/Portfolio-pic.png";
                 </a>
 
             </div>
-
-            <!-- IMAGE (NOT SVG MODULE) -->
-            <Image
-                src={ContactArt}
-                alt="contact"
-                class="absolute bottom-10 w-[260px] z-10"
-            />
+            <img
+    src={ContactArt.src}
+    alt="contact"
+    class="absolute bottom-10 w-[260px] z-10"
+/>
         </div>
 
         <!-- FORM -->
