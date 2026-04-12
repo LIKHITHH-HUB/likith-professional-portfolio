@@ -52,28 +52,27 @@ import { Footer } from "../components";
     image: "/Portfolio-pic.png",
   }}
 />
-			extend={{
-				link: [
-					{ rel: "icon", type: "image/png", href: "/favicon.png" },
-					{
-						rel: "shortcut",
-						type: "image/png",
-						href: "/favicon.png",
-					},
-					{
-						rel: "apple-touch-icon",
-						type: "image/png",
-						href: "/favicon.png",
-					},
-				],
-				meta: [
-					{
-						name: "twitter:url",
-						content: "https://chiragchrg.netlify.app/",
-					},
-				],
-			}}
-		/>
+			<SEO
+  title="Likhith | Full Stack Developer Portfolio"
+  description="Hi, I'm a Full Stack Web Developer Building scalable web applications with AI Integrates."
+  canonical="https://likith-professional-portfolio-eight.vercel.app/"
+  openGraph={{
+    basic: {
+      title: "Likhith | Portfolio",
+      type: "website",
+      image: "/Portfolio-pic.png",
+      url: "https://likith-professional-portfolio-eight.vercel.app/",
+    },
+  }}
+  twitter={{
+    title: "Likhith | Portfolio",
+    description: "Full Stack Developer Portfolio",
+    card: "summary",
+    site: "@yourhandle",
+    creator: "@yourhandle",
+    image: "/Portfolio-pic.png",
+  }}
+/>
 
 		<AstroFont
 			config={[
